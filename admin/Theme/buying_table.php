@@ -19,6 +19,8 @@ include "head.php";
                                   <th >Price</th>
                                   <th >Description</th>
                                   <th >ID House</th>
+                                  <th> Status </th>
+                                  <th >Options</th>
                                   </tr>
                                   </thead>
                                   <tbody>
@@ -28,10 +30,12 @@ include "head.php";
                             while($donnees = mysqli_fetch_assoc($resultatbuy))
                           {   echo "<tr>";
                               echo "<td>".$donnees['firstname']."</td>";
-                              echo ".<td>".$donnees['familyname']."</td>";
-                              echo ".<td>".$donnees['price']."</td>";
-                              echo ".<td>".$donnees['description']."</td>";
+                              echo "<td>".$donnees['familyname']."</td>";
+                              echo "<td>".$donnees['price']."</td>";
+                              echo "<td>".$donnees['description']."</td>";
                               echo "<td>".$donnees['idhouse']."</td>";
+                              echo "<td>".$donnees['status']."</td>";
+                              echo "<td> <a  href=\"acceptbuying_house.php?id=".$donnees['id']."\">Accept</a>"."</td>";
                               echo "</tr>";
                           } ?>
                                   

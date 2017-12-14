@@ -30,11 +30,15 @@
 						<li><a href="rent.php">Rent</a></li>
 						<li><a href="sell.php">Sell</a></li>
 						<li><a href="contact.php">Contact</a></li>
+						<li><a href="messages.php">Messages</a></li>
 						
-						<li><a href="PersonnelInfos.php"><?php session_start();if(isset($_SESSION['first_name']) && (!empty($_SESSION['first_name'])))
+						<li><a href="PersonnelInfos.php"><?php session_start();
+						if (isset($_SESSION['first_name'])&&$_SESSION['logged_in']==true) {
+						
+						if(isset($_SESSION['first_name']) && (!empty($_SESSION['first_name'])))
 						{
 
-						 echo $_SESSION['first_name']." ".$_SESSION['last_name'] ;} ?> </a></li>					
+						 echo $_SESSION['first_name']." ".$_SESSION['last_name'] ;}} ?> </a></li>					
 					</ul>
 					
 					<a href="../index.html" class="login_btn">Log out</a>

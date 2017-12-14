@@ -8,26 +8,28 @@ include "header.php";
 						<h2 class="panel-title">Personel Informations</h2>
 					</div>
 					<div class="panel-body">
-						<form name="contactform" method="post" action="sell.php" class="form-horizontal" role="form">
+						
 							<div class="form-group">
 								<label for="inputName" class="col-lg-2 control-label">First Name</label>
 								<div class="col-lg-10">
 									<label for="inputName" class="col-lg-2 control-label"><?php echo $_SESSION['first_name']?></label>
 								</div>
 							</div>
+							<br><br>
 							<div class="form-group">
 								<label for="inputName" class="col-lg-2 control-label">Family Name</label>
 								<div class="col-lg-10">
 									<label for="inputName" class="col-lg-2 control-label"><?php echo $_SESSION['last_name']?></label>
 								</div>
 							</div>
-							
+							<br><br>
 							<div class="form-group">
 								<label for="inputEmail1" class="col-lg-2 control-label">Address Mail</label>
 								<div class="col-lg-10">
 									<label for="inputName" class="col-lg-2 control-label"><?php echo $_SESSION['email']?></label>
 								</div>
 							</div>
+							<br><br>
 							<div class="form-group">
 								<label for="inputPassword1" class="col-lg-2 control-label">Description</label>
 								<div class="col-lg-10">
@@ -36,7 +38,7 @@ include "header.php";
 							</div>
 						
 							
-						</form>
+						
 
 					</div>
 				</div>

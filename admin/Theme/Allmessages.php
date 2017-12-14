@@ -11,38 +11,34 @@ include "head.php";
       <!--main content start-->
       <section id="main-content">
           <section class="wrapper">
-          	<h3><i class="fa fa-angle-right"></i>  Tables</h3>
+          	<h3><i class="fa fa-angle-right"></i>All Messages</h3>
 		  		<div class="row mt">
 			  		<div class="col-lg-12">
                       <div class="content-panel">
-                      <h4><i class="fa fa-angle-right"></i>Admin Table</h4>
-                      <form action="addAdmin.php">
-                      <input type="submit" name="addadmin" value="Add Admin">
-                    </form>
+                      <h4><i class="fa fa-angle-right"></i></h4>
+                      
                           <section id="unseen">
                             <table class="table table-bordered table-striped table-condensed">
                               <thead>
                               <tr>
-                                <th>ID </th>
-                                  <th>First Name</th>
-                                  <th>Family Name</th>
-                                  <th >login</th>
-                                  <th >password</th>
+                              
+                                <th >From</th>
+                                  <th>Date</th>
+                                  <th>Message</th>
                                   <th>Options</th>
                                   
                               </tr>
                               </thead>
                               <tbody>
                                 <?php
-$resultat=$mysqli ->query("select * from admin ;");
+$resultat=$mysqli ->query("select * from messages ;");
                             while($donnees = mysqli_fetch_assoc($resultat))
                           {   echo "<tr>";
-                        echo "<td>".$donnees['id']."</td>";
-                              echo "<td>".$donnees['first_name']."</td>";
-                              echo "<td>".$donnees['last_name']."</td>";
-                              echo "<td>".$donnees['login']."</td>";
-                              echo "<td>".$donnees['password']."</td>";
-                              echo "<td> <a  href=\"supprimer_users.php?idadmin=".$donnees['id']."\">Supprimer</a>"."</td>";
+                        
+                              echo "<td>".$donnees['name']."</td>";
+                              echo "<td>".$donnees['date']."</td>";
+                              echo "<td>".$donnees['message']."</td>";
+                              echo "<td> <a  href=\"reply_messages.php?idadmin=1&amp;idmessage=".$donnees['id']."&amp;iduser=".$donnees['id_user']."&amp;name=".$donnees['name']."&amp;message=".$donnees['message']."&amp;date=".$donnees['date']."\">Reply</a> || <a  href=\"supprimer_Messages.php?id=".$donnees['id']."\">Delete</a>"."</td>";
                               echo "</tr>";
                           }
 

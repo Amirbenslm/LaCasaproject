@@ -39,11 +39,11 @@ $resultat=$mysqli ->query("select * from rent ;");
                             while($donnees = mysqli_fetch_assoc($resultat))
                           {   echo "<tr>";
                               echo "<td>".$donnees['firstname']."</td>";
-                              echo ".<td>".$donnees['familyname']."</td>";
+                              echo "<td>".$donnees['familyname']."</td>";
                               echo "<td>".$donnees['checkin']."</td>";
-                              echo ".<td>".$donnees['checkout']."</td>";
+                              echo "<td>".$donnees['checkout']."</td>";
                               echo "<td>".$donnees['address']."</td>";
-                              echo ".<td>".$donnees['description']."</td>";
+                              echo "<td>".$donnees['description']."</td>";
                               echo "<td>".$donnees['idhouse']."</td>";
                               echo "<td>".$donnees['status']."</td>";
                               if($donnees['status']==0)

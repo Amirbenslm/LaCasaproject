@@ -26,9 +26,15 @@
 						<li><a href="rent.php">Rent</a></li>
 						<li><a href="sell.php">Sell</a></li>
 						<li><a href="contact.php">Contact</a></li>
-						
+						<li><a href="messages.php">Messages :<?php
+                               include "db.php";
+                               $resultat=$mysqli->query("select count(*) as nb from replymessages where road=0");
+                               $donnees = mysqli_fetch_assoc($resultat);
+                               echo $donnees['nb'];
+                               ?></a></li>
 						<li><a href="PersonnelInfos.php"><?php session_start(); echo $_SESSION['first_name']." ".$_SESSION['last_name'] ?> </a></li>					
 					</ul>
+
 					
 					<a href="../index.html" class="login_btn">Log out</a>
 				</nav>

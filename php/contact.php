@@ -65,7 +65,12 @@ if(isset($_POST['inputEmail']))
                     'allow_self_signed' => true
                 ]
             ]);
-            $mail->send();	
+           if( $mail->send())	
+     	{?>
+     				<div class="alert alert-success alert-dismissable">
+  <strong>Success!</strong> Indicates a successful or positive action.
+</div>
+<?php   }    
 	}
 }
  

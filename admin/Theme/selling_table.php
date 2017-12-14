@@ -26,6 +26,7 @@ include "head.php";
                                   <th >Price</th>
                                   <th >Description</th>
                                   <th >image</th>
+                                  <th >Options</th>
                                   </tr>
                                   </thead>
                                   <tbody>
@@ -35,10 +36,11 @@ include "head.php";
                             while($donnees = mysqli_fetch_assoc($resultatbuy))
                           {   echo "<tr>";
                               echo "<td>".$donnees['firstname']."</td>";
-                              echo ".<td>".$donnees['familyname']."</td>";
-                              echo ".<td>".$donnees['price']."</td>";
-                              echo ".<td>".$donnees['description']."</td>";
+                              echo "<td>".$donnees['familyname']."</td>";
+                              echo "<td>".$donnees['price']."</td>";
+                              echo "<td>".$donnees['description']."</td>";
                               echo "<td>".$donnees['image']."</td>";
+                              echo "<td> <a  href=\"suppsell_house.php?id=".$donnees['id']."\">delete</a>"."</td>";
                               echo "</tr>";
                           }?>
                                   

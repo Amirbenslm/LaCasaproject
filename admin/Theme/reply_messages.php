@@ -1,6 +1,14 @@
 <?php
+session_start();
 include "head.php";
-
+if($_GET['iduser'])
+{
+$_SESSION['iduser']=$_GET['iduser'];
+$_SESSION['nameuser']=$_GET['name'];
+$_SESSION['message']=$_GET['message'];
+$_SESSION['idadmin']=$_GET['idadmin'];
+$mysqli->query("update messages set road =1 where id=".$_GET['idmessage']);
+}
 ?>
 
       <!--sidebar end-->
@@ -11,47 +19,41 @@ include "head.php";
       <!--main content start-->
       <section id="main-content">
           <section class="wrapper">
-          	<h3><i class="fa fa-angle-right"></i>  Tables</h3>
+          	<h3><i class="fa fa-angle-right"></i>Reply</h3>
 		  		<div class="row mt">
 			  		<div class="col-lg-12">
                       <div class="content-panel">
-                      <h4><i class="fa fa-angle-right"></i>Admin Table</h4>
-                      <form action="addAdmin.php">
-                      <input type="submit" name="addadmin" value="Add Admin">
-                    </form>
+                      <h4><i class="fa fa-angle-right"></i>  <?php echo " ".$_SESSION['nameuser'] ?></h4>
+                      <form action="reply_messages_db.php" method="post">
                           <section id="unseen">
                             <table class="table table-bordered table-striped table-condensed">
                               <thead>
-                              <tr>
-                                <th>ID </th>
-                                  <th>First Name</th>
-                                  <th>Family Name</th>
-                                  <th >login</th>
-                                  <th >password</th>
-                                  <th>Options</th>
-                                  
+                            
+                                  <tr>
+                         <div class="form-group"><br><br>
+                     <label for="inputPassword1" class="col-lg-2 control-label">Message :</label>
+                      <?php
+ 								
+                        
+                              echo "".$_SESSION['message']."<br><br>";?>
+                        </div> 
+                                  </tr>
+                              <tr>    
+                               <div class="col-lg-10">
+                       <textarea class="form-control" rows="4" id="inputMessage" name="inputMessage" placeholder="Your message..." ></textarea>
+                        </div>   
                               </tr>
                               </thead>
                               <tbody>
-                                <?php
-$resultat=$mysqli ->query("select * from admin ;");
-                            while($donnees = mysqli_fetch_assoc($resultat))
-                          {   echo "<tr>";
-                        echo "<td>".$donnees['id']."</td>";
-                              echo "<td>".$donnees['first_name']."</td>";
-                              echo "<td>".$donnees['last_name']."</td>";
-                              echo "<td>".$donnees['login']."</td>";
-                              echo "<td>".$donnees['password']."</td>";
-                              echo "<td> <a  href=\"supprimer_users.php?idadmin=".$donnees['id']."\">Supprimer</a>"."</td>";
-                              echo "</tr>";
-                          }
-
-                             
-                                ?>
+                               
                               
                               </tbody>
                           </table>
                           </section>
+                          <center>
+                                  <input type="submit" name="submit" value="    Reply         ">
+                                  </center>
+                      </form>
                   </div><!-- /content-panel -->
                </div><!-- /col-lg-4 -->			
 		  	</div><!-- /row -->
@@ -83,3 +85,4 @@ $resultat=$mysqli ->query("select * from admin ;");
 
   </body>
 </html>
+ 
